@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
     before_action :require_login
 
     def index
-        @cities = City.all.order(:name)
+        @cities = City.all
     end
 
     def show
@@ -20,10 +20,6 @@ class CitiesController < ApplicationController
         else 
             render :new
         end
-    end
-
-    def highest_rated
-        @city = City.highest_rated
     end
 
     private 

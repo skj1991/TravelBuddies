@@ -1,0 +1,15 @@
+<h4 class="align-table">Explore Countries</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @countries.each do |country| %>
+    <tr class="border-bottom">
+      <td class="no-underline"><%= link_to country.name, country_path(country) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -3,12 +3,11 @@ class City < ApplicationRecord
   has_many :trips
   has_many :users, through: :trips
   validates :name, presence: true, uniqueness: true
-  validates :country_id, presence: true
-  scope :highest_rated, -> { joins(:trips).merge(Trip.group(:city_id).having('AVG(rating) >= 4.5'))} 
+  validates :country_id, presence: true 
 
   def country_name=(country_name)
     if country_name[:country] != ""
-      country - Country.find_or_create_by(name: country_name[:country])
+      country = Country.find_or_create_by(name: country_name[:country])
       self.country_id = country_id
     end
   end

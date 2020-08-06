@@ -3,7 +3,7 @@ class TripsController < ApplicationController
 
   def index
     find_user    
-    @trips = user.trips.all
+    @trips = @user.trips.all
   end
 
   def show
@@ -20,9 +20,9 @@ class TripsController < ApplicationController
   def create
     set_user
     find_city    
-    @trip = user.trips.build(trip_params)
+    @trip = @user.trips.build(trip_params)
     if @trip.save
-        redirect_to user_trips_path(@user) :flash => { :success => "Trip successfully added!"}
+        redirect_to user_trips_path(@user), :flash => { :success => "Trip successfully added!"}
     else
         render :new
     end
@@ -40,20 +40,21 @@ class TripsController < ApplicationController
     set_user
     find_trip
     if @trip.update(trip_params)
-        redirect_to user_trips_path(@user) :flash => { :success => "Trip successfully updated!"}
+        redirect_to user_trips_path(@user), :flash => { :success => "Trip successfully updated!"}
     else
         render :edit
     end
   end
 
-#   def five_star
-#   end
+  def five_star
+    set_user
+  end
 
   def destroy
     set_user
     find_trip
     @trip.destroy
-    redirect_to user_trips_path(@user) :flash => { :success => "Trip has been deleted!"}
+    redirect_to user_trips_path(@user), :flash => { :success => "Trip has been deleted!"}
   end
 
   private
@@ -67,10 +68,10 @@ class TripsController < ApplicationController
   end
 
   def find_city
-    @city - City.find_by(:id params[:city_id])
+    @city = City.find_by(id: params[:city_id])
   end
 
   def find_user
-    @user = User.find_by(:id params[:user_id])
+    @user = User.find_by(id: params[:user_id])
   end
 end

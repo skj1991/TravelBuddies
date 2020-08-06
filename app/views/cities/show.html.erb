@@ -1,0 +1,16 @@
+<div class="list-details">
+  <h4><%= @city.combined_name %></h4>
+  <span class="bold-text">Average Rating: </span><%= @city.rating_avg %><br>
+  <p><span class="bold-text">Total Reviews: </span><%= @city.trips.count %></p>
+
+  <% @city.trips.each do |trip| %>
+    <div class="underlined-list">
+      <%= trip.comment %>
+      <p>- <%= trip.user.name %> (<%= trip.rating %> stars)</p>
+    </div>
+  <% end %>
+
+  <% if !Trip.exists?(user_id: current_user.id, city_id: @city.id) %>
+    <%= link_to "Been to #{@city.name}? Add it to your trips!", new_user_trip_path(:user_id => current_user.id, :city_id => @city.id) %>
+  <% end %>
+</div>
