@@ -1,7 +1,15 @@
-<h4 class="blue-bold">Log In to TripTracker</h4><br>
+<h2 <strong style="color: green;"> Log In to Travel Buddies</strong></h2><br>
+ <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+
   <%= form_for :user do |f| %>
     <%= f.email_field :email, placeholder: "Email", :size => 30 %>
     <%= f.password_field :password, placeholder: "Password", :size => 30 %><br><br>
-    <%= f.submit "Continue with Email", :class => 'btn btn-block btn-success' %><br>
+    <%= f.submit "Continue with Email" %><br>
+    <%= link_to "Log In with Facebook!", '/auth/facebook' %>
   <% end %>
-  <%= link_to "Log In with Facebook", '/auth/facebook', :class => 'btn btn-block btn-primary' %>
+  
+

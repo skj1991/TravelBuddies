@@ -10,6 +10,16 @@
   </head>
 
   <body>
+      <% if session["user_id"] %> 
+        <a href="/users/:id"> User Profile</a><br>
+        <a href="/users"> View Travelers</a><br>
+        <a href="/cities"> Explore Cities</a><br>
+        <a href="/countries"> Explore Countries</a><br>
+        <a href= "/logout"> Logout </a>
+      <% else %>
+        <a href= "/signup"> Sign-Up </a><br>
+        <a href= "/login"> Login </a>
+      <% end %>
     <%= yield %>
   </body>
 </html>

@@ -27,7 +27,12 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+
+
 gem 'dotenv-rails'
+
+#friends
+gem 'has_friendship'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

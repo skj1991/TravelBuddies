@@ -1,0 +1,9 @@
+<h4 class="blue-bold">Trips Rated 5 Stars by <%= @user.name %>:</h4><br>
+  <% if @user.trips.five_star.count >= 1 %>
+    <% @user.trips.five_star.each do |trip| %>
+      <p class="no-underline"><%= link_to trip.city.combined_name, user_trip_path(@user, trip) %></p>
+    <% end %>
+    <% else %>
+    <p>You don't have any 5-star trips yet.</p>
+  <% end %>
+<span class="blue-bold"><%= link_to "<-- Return to My Profile", user_path(@user) %></span>

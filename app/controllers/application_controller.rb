@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?, :current_user, :set_user, :require_login
 
   def logged_in?
-    !!current_user
+    !!session["user_id"]
   end
 
   def current_user
-    @current_user = User.find_by(session[:id]) if session[:user_id]
+    User.find(session["user_id"])
   end
 
   def set_user
@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    if !logged_in? 
+    unless logged_in? 
         flash[:error] = "Please login to continue."
-        redirect_path login_path
+        redirect_to login_path
     end
   end
 end
