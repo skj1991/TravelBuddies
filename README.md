@@ -1,8 +1,8 @@
-Welcome to Travel Buddies! 
+* Welcome to Travel Buddies! 
 
 The perfect website that allows you to track cities and countries you have visited and rank your visit. You can see where other users have visited and the most popular places by rating.
 
-Getting Started:
+* Getting Started:
 
 To download Travel Buddies, follow these steps:
 
@@ -13,22 +13,7 @@ To download Travel Buddies, follow these steps:
     'rails db:create'
     'rails db:migrate'
 4. If you recieve no errors, run 'rails s' in your terminal to start the server, and navigate to localhoast:3000 in your web browser.
-If you are interested, Trip-Up also features a test suite that you can run using rspec.
 
-* Ruby version
+* Contributing
+Feel free to submit a pull request to report bugs.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
