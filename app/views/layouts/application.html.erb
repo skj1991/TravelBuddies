@@ -11,8 +11,9 @@
 
   <body>
       <% if session["user_id"] %> 
+        <a href="/users"> Home</a><br>
         <a href="/users/:id"> User Profile</a><br>
-        <a href="/users"> View Travelers</a><br>
+        <a href="/cities/new"> Add New City</a><br>
         <a href="/cities"> Explore Cities</a><br>
         <a href="/countries"> Explore Countries</a><br>
         <a href= "/logout"> Logout </a>
