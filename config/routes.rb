@@ -11,9 +11,8 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :trips
-    resources :friends, only: [:index, :create]
   end
-
+  
   resources :cities, only: [:index, :show, :new, :create]
   resources :countries, only: [:index, :show]
 

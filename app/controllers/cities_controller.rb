@@ -2,7 +2,13 @@ class CitiesController < ApplicationController
     before_action :require_login
 
     def index
-        @cities = City.all
+        if params[:q]
+            @cities = City.where("name like ?", "%#{params[:q]}%")
+            #byebug
+        else
+            @cities = City.all
+        end
+
     end
 
     def show

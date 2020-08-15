@@ -1,4 +1,10 @@
 <h2 class="align-table">Explore Cities</h2>
+<%= form_with(url: "/cities", method: "get", local: true) do %>
+  <%= label_tag(:q, "Search for City Name:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -15,3 +21,5 @@
     <% end %>
   </tbody>
 </table>
+
+

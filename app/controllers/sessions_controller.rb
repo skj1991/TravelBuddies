@@ -3,22 +3,16 @@ class SessionsController < ApplicationController
     end
 
     def altcreate
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-            u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            u.image = auth['info']['image']
-            u.password = 'password'
-        end
-        @user.save
+        @user = User.new_from_oauth(auth)
         session[:user_id] = @user.id
-        redirect_to users_path(@user), :notice => "Signed in!"
+        redirect_to users_path, :notice => "Signed in!"
     end
 
      def create
          @user = User.find_by(email: params[:user][:email])
          if @user && @user.authenticate(params[:user][:password])
              session[:user_id] = @user.id
-             redirect_to users_path(@user)
+             redirect_to users_path
          else
             
              redirect_to login_path, :flash => { :error => "Incorrect username/password. Please try again."}
